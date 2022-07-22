@@ -880,8 +880,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RotationalSpeed: 0.05
-  BeltConveyorRightEdge: 8
-  BeltConveyorLeftEdge: -8
+  BeltConveyorRightEdge: {x: 6, y: -1.5, z: -5}
+  BeltConveyorLeftEdge: {x: -6, y: -1.5, z: -5}
 --- !u!4 &1890661431 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8511855471406722483, guid: 0233c237518fb8145a37d50f447ccaa7, type: 3}
