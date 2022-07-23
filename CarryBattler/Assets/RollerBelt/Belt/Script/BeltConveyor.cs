@@ -6,12 +6,12 @@ using UnityEngine;
 /// ベルトコンベアのベルト
 /// </summary>
 public class BeltConveyor : MonoBehaviour
-{
+{   
+    private BeltConveyorEnum.BeltConveyorState BCState; 
     private List<GameObject> Belt = new List<GameObject>();
     [Header("ベルトが回転するスピード")] [SerializeField] private float RotationalSpeed;
     [Header("ベルトの右端の位置")] [SerializeField] private Vector3 BeltConveyorRightEdge;
     [Header("ベルトの左端の位置")] [SerializeField] private Vector3 BeltConveyorLeftEdge;
-    private BeltConveyorEnum.BeltConveyorState BCState; 
 
     private void Start()
     {
@@ -19,23 +19,54 @@ public class BeltConveyor : MonoBehaviour
         {
             Belt.Add(this.transform.GetChild(i).gameObject);
         }
-        BCState = BeltConveyorEnum.BeltConveyorState.Stop;
+        BCState = BeltConveyorEnum.BeltConveyorState.Left;
     }
 
     private void Update()
     {
-        foreach(GameObject belt in Belt)
+        InfiniteDrive();
+    }
+    /// <summary>
+    /// 無限駆動
+    /// </summary>
+    private void InfiniteDrive()
+    {
+        Vector3 Speed = new Vector3();
+
+        //右か左かで進む方向を決める
+        if(BCState==BeltConveyorEnum.BeltConveyorState.Left)
         {
-            belt.transform.position += new Vector3(RotationalSpeed, 0, 0);
-            if (belt.transform.position.x > BeltConveyorRightEdge.x) 
+            Speed=new Vector3(-RotationalSpeed, 0, 0);
+        }
+        if(BCState==BeltConveyorEnum.BeltConveyorState.Right)
+        {
+            Speed = new Vector3(RotationalSpeed, 0, 0);
+        }
+        foreach (GameObject belt in Belt)
+        {
+            belt.transform.position += Speed;
+            //端まで行ったら逆の端に移動
+            if (belt.transform.position.x < BeltConveyorLeftEdge.x &&
+                BCState == BeltConveyorEnum.BeltConveyorState.Left)
             {
-                belt.transform.localPosition=BeltConveyorLeftEdge;
+                belt.transform.localPosition = BeltConveyorRightEdge;
+            }
+            else if (belt.transform.position.x > BeltConveyorRightEdge.x &&
+                BCState == BeltConveyorEnum.BeltConveyorState.Right)
+            {
+                belt.transform.localPosition = BeltConveyorLeftEdge;
             }
         }
     }
 
-    private void InfiniteDrive()
+    private void GearControle()
     {
-        
+        foreach (GameObject belt in Belt)
+        {
+            Animator animator=belt.GetComponent<Animator>();
+            AnimatorClipInfo[] AnimClipInfo;
+            AnimClipInfo = belt.GetComponent<Animator>().GetCurrentAnimatorClipInfo(0);
+            animator.Play("Rotate", 0, 1);//第三引数で途中から始めれる
+        }
     }
 }

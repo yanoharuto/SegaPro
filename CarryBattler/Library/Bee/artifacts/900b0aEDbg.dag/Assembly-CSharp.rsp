@@ -355,7 +355,7 @@
 -r:"Library/Bee/artifacts/900b0aEDbg.dag/UnityEngine.UI.ref.dll"
 "Assets/RollerBelt/Belt/Script/BeltConveyor.cs"
 "Assets/RollerBelt/Belt/Script/BeltConveyorEnum.cs"
-"Assets/RollerBelt/BeltLever/Lever.cs"
+"Assets/RollerBelt/Lever/Lever.cs"
 -langversion:9.0
 
 /deterministic
