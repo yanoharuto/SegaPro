@@ -63,10 +63,7 @@ public class BeltConveyor : MonoBehaviour
     {
         foreach (GameObject belt in Belt)
         {
-            Animator animator=belt.GetComponent<Animator>();
-            AnimatorClipInfo[] AnimClipInfo;
-            AnimClipInfo = belt.GetComponent<Animator>().GetCurrentAnimatorClipInfo(0);
-            animator.Play("Rotate", 0, 1);//第三引数で途中から始めれる
+            Animator animator = belt.GetComponent<Animator>();
         }
     }
 }
