@@ -9,7 +9,8 @@ public class BeltConveyor : MonoBehaviour
 {   
     private BeltConveyorEnum.BeltConveyorState BCState; 
     private List<GameObject> Belt = new List<GameObject>();
-    [Header("ベルトが回転するスピード")] [SerializeField] private float RotationalSpeed;
+    [Header("歯車が回転するスピード")] [SerializeField] private float RotationalGearSpeed;
+    [Header("ベルトが回転するスピード")] [SerializeField] private float RotationalBeltSpeed;
     [Header("ベルトの右端の位置")] [SerializeField] private Vector3 BeltConveyorRightEdge;
     [Header("ベルトの左端の位置")] [SerializeField] private Vector3 BeltConveyorLeftEdge;
 
@@ -36,11 +37,13 @@ public class BeltConveyor : MonoBehaviour
         //右か左かで進む方向を決める
         if(BCState==BeltConveyorEnum.BeltConveyorState.Left)
         {
-            Speed=new Vector3(-RotationalSpeed, 0, 0);
+            Speed = new Vector3(-RotationalBeltSpeed, 0, 0);
+            GearControle(-RotationalGearSpeed);
         }
         if(BCState==BeltConveyorEnum.BeltConveyorState.Right)
         {
-            Speed = new Vector3(RotationalSpeed, 0, 0);
+            Speed = new Vector3(RotationalBeltSpeed, 0, 0);
+            GearControle(RotationalGearSpeed);
         }
         foreach (GameObject belt in Belt)
         {
@@ -59,11 +62,12 @@ public class BeltConveyor : MonoBehaviour
         }
     }
 
-    private void GearControle()
+    private void GearControle(float _RotationalGearSpeed)
     {
         foreach (GameObject belt in Belt)
         {
             Animator animator = belt.GetComponent<Animator>();
+            animator.SetFloat(Animator.StringToHash("Speed"), _RotationalGearSpeed);
         }
     }
 }
