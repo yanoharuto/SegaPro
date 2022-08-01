@@ -353,9 +353,10 @@
 -r:"Library/Bee/artifacts/900b0aEDbg.dag/Unity.VSCode.Editor.ref.dll"
 -r:"Library/Bee/artifacts/900b0aEDbg.dag/UnityEditor.UI.ref.dll"
 -r:"Library/Bee/artifacts/900b0aEDbg.dag/UnityEngine.UI.ref.dll"
-"Assets/RollerBelt/Belt/Script/BeltConveyor.cs"
-"Assets/RollerBelt/Belt/Script/BeltConveyorEnum.cs"
-"Assets/RollerBelt/Lever/Lever.cs"
+"Assets/RollerBelt/Script/BeltConveyor.cs"
+"Assets/RollerBelt/Script/BeltConveyorEnum.cs"
+"Assets/RollerBelt/Script/ConveyorIF.cs"
+"Assets/RollerBelt/Script/Lever.cs"
 -langversion:9.0
 
 /deterministic
