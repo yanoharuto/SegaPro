@@ -520,10 +520,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LeverStick: {fileID: 1257949096}
-  BorderValue: 0.3
+  BorderValue: 0.05
   MaxLeverAngle: 0.3
   LeverTiltSpeed: 0.5
-  LeverScrollbar: {fileID: 856635589}
+  Scrollbar: {fileID: 856635589}
   CIF: {fileID: 1752830907}
 --- !u!1 &308613481
 GameObject:
