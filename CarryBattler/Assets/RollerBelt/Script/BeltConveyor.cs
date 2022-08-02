@@ -5,9 +5,8 @@ using UnityEngine;
 /// <summary>
 /// ベルトコンベアのベルト
 /// </summary>
-public class BeltConveyor : MonoBehaviour
+public class BeltConveyor : ConveyorIF
 {   
-    private BeltConveyorEnum.BeltConveyorState BCState; 
     private List<GameObject> Belt = new List<GameObject>();
     [Header("歯車が回転するスピード")] [SerializeField] private float RotationalGearSpeed;
     [Header("ベルトが回転するスピード")] [SerializeField] private float RotationalBeltSpeed;
@@ -20,7 +19,6 @@ public class BeltConveyor : MonoBehaviour
         {
             Belt.Add(this.transform.GetChild(i).gameObject);
         }
-        BCState = BeltConveyorEnum.BeltConveyorState.Left;
     }
 
     private void Update()
@@ -40,10 +38,15 @@ public class BeltConveyor : MonoBehaviour
             Speed = new Vector3(-RotationalBeltSpeed, 0, 0);
             GearControle(-RotationalGearSpeed);
         }
-        if(BCState==BeltConveyorEnum.BeltConveyorState.Right)
+        else if(BCState==BeltConveyorEnum.BeltConveyorState.Right)
         {
             Speed = new Vector3(RotationalBeltSpeed, 0, 0);
             GearControle(RotationalGearSpeed);
+        }
+        //右でも左でもないならストップ
+        else
+        {
+            GearControle(0);
         }
         foreach (GameObject belt in Belt)
         {
@@ -61,7 +64,7 @@ public class BeltConveyor : MonoBehaviour
             }
         }
     }
-
+    //歯車の回転の向きを決める
     private void GearControle(float _RotationalGearSpeed)
     {
         foreach (GameObject belt in Belt)
