@@ -1641,6 +1641,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Warrier
       objectReference: {fileID: 0}
+    - target: {fileID: 2918808895864925069, guid: 2ea3d9c9c6952ce4889f9a96714bed60, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4401882411212500711, guid: 2ea3d9c9c6952ce4889f9a96714bed60, type: 3}
       propertyPath: m_Animation
       value: 
