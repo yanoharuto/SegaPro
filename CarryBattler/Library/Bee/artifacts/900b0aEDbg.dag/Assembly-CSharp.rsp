@@ -354,6 +354,7 @@
 -r:"Library/Bee/artifacts/900b0aEDbg.dag/UnityEditor.UI.ref.dll"
 -r:"Library/Bee/artifacts/900b0aEDbg.dag/UnityEngine.UI.ref.dll"
 "Assets/CarryObject/Script/CarryObject.cs"
+"Assets/Hunter/Script/Hunter.cs"
 "Assets/ObjectBase/ObjectBase.cs"
 "Assets/ObjectBase/ObjectEnum.cs"
 "Assets/RollerBelt/Script/BeltConveyor.cs"

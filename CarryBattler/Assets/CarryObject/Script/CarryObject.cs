@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class CarryObject : ObjectBase
 {
-    private void OnCollisionEnter(Collision collision)
+    protected void OnCollisionEnter(Collision collision)
     {
         GameObject gameObject = collision.gameObject;
+        Debug.Log("attata");
         if(gameObject.GetComponent<ObjectBase>().ShowTagName()==ObjectEnum.ObjectKind.Ground)
         {
             OnTheGround(gameObject);
@@ -16,8 +17,10 @@ public class CarryObject : ObjectBase
     /// <summary>
     /// ベルトコンベアの端に到達したら端の中央に乗る
     /// </summary>
-    private void OnTheGround(GameObject ground)
+    private void OnTheGround(GameObject _Ground)
     {
-        this.transform.SetPositionAndRotation(ground.transform.position,this.transform.rotation);
+        Vector3 NewPos = _Ground.transform.position;
+        NewPos.y = this.transform.position.y;
+        this.transform.SetPositionAndRotation(NewPos, transform.rotation);
     }
 }
