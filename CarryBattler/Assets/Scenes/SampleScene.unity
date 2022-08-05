@@ -534,8 +534,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LeverStick: {fileID: 1257949096}
-  BorderValue: 0.125
-  MaxLeverAngle: 0.3
+  BorderValue: 0.175
+  MaxLeverAngle: 0.4
   LeverTiltSpeed: 0.5
   Scrollbar: {fileID: 856635589}
   CIF: {fileID: 1752830907}
@@ -566,7 +566,7 @@ RectTransform:
   m_GameObject: {fileID: 308613481}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.4, y: 1, z: 1}
+  m_LocalScale: {x: 0.1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 873030544}
@@ -590,7 +590,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.54509807}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1071,7 +1071,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 15, y: 0}
+  m_AnchoredPosition: {x: 17.5, y: 0}
   m_SizeDelta: {x: 120, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &856635589
@@ -1136,7 +1136,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.58431375}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1617,8 +1617,8 @@ MonoBehaviour:
   TagName: 0
   AttackRange: 0
   AttackAnimClip: {fileID: 7400000, guid: 01b643d447024fc499ee73da06e5f2d0, type: 3}
-  SPAttackAnimClip: {fileID: 0}
-  IdolAnimClip: {fileID: 7400000, guid: 7db34efc79f28ab4895bfdf355b8405f, type: 3}
+  SPAttackAnimClip: {fileID: 7400000, guid: f4acb18e5d110ac4b994c939fee4c63a, type: 3}
+  IdleAnimClip: {fileID: 7400000, guid: 7db34efc79f28ab4895bfdf355b8405f, type: 3}
   DamegedAnimClip: {fileID: 7400000, guid: 23e1ee929cc5daf479a3523a06d5c511, type: 3}
   ResistAnimClip: {fileID: 7400000, guid: 6e57654b5a7da6e4caaacc0f4556deda, type: 3}
 --- !u!4 &2013929383 stripped

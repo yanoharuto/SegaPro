@@ -7,25 +7,20 @@ public class Hunter: CarryObject
     [SerializeField] [Header("射程")] private float AttackRange;
     [SerializeField] [Header("攻撃モーション")] private AnimationClip AttackAnimClip;
     [SerializeField] [Header("特殊攻撃モーション")] private AnimationClip SPAttackAnimClip;
-    [SerializeField] [Header("待機モーション")] private AnimationClip IdolAnimClip;
+    [SerializeField] [Header("待機モーション")] private AnimationClip IdleAnimClip;
     [SerializeField] [Header("被弾時モーション")] private AnimationClip DamegedAnimClip;
     [SerializeField] [Header("揺れ耐えモーション")] private AnimationClip ResistAnimClip;
     private List<Animator> Animations = new List<Animator>();
-    private void Attack()
-    {
 
-    }
-    private void Dameged()
+    private void PlayAnimation(string _AnimName)
     {
-        foreach(Animator anim in Animations)
+        foreach (Animator anim in Animations)
         {
-            anim.Play(DamegedAnimClip.name);
+            anim.Play(_AnimName);
         }
     }
-    private void Idol()
-    {
-
-    }
+    
+    
     private void Start()
     {
         for (int i = 0; i < transform.childCount; i++) 
@@ -35,8 +30,6 @@ public class Hunter: CarryObject
     }
     private void Update()
     {
-        Attack();
-        Idol();
     }
     protected void OnCollisionEnter(Collision collision)
     {
@@ -47,7 +40,9 @@ public class Hunter: CarryObject
         }
         if (gameObject.GetComponent<ObjectBase>().ShowTagName() == ObjectEnum.ObjectKind.Enemy)
         {
-            Dameged();
+
+           
+            PlayAnimation(DamegedAnimClip.name);
         }
     }
 }
