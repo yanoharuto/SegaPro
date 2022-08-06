@@ -9,5 +9,9 @@ public class ConveyorIF : MonoBehaviour
     {
         BCState = _BCState;
     }
+    public BeltConveyorEnum.BeltConveyorState ShowBCState()
+    {
+        return BCState;
+    }
 }
 

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CarryObject : ObjectBase
 {
+    [SerializeField] [Header("ベルトコンベアのインターフェイス")] protected ConveyorIF CIF;
     /// <summary>
     /// ベルトコンベアの端に到達したら端の中央に乗る
     /// </summary>
